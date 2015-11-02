@@ -6,7 +6,7 @@ import ReactDom from 'react-dom';
 import {Gallery as GalleryCollection} from './resources';
 import {Photo as PhotoModel} from './resources';
 
-import {Gallery as GalleryView} from './views';
+import {Gallery as GalleryView} from './views/';
 import {Photo as PhotoView} from './views';
 import {Add} from './views';
 import {Edit} from './views';

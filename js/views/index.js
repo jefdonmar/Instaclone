@@ -1,14 +1,14 @@
 import Gallery from './gallery';
-import PhotoPost from './picture';
-import AddPost from './add';
-import EditPost from './edit';
+import Photo from './picture';
+import Add from './add';
+import Edit from './edit';
 import Spinner from './spinner';
 
 
 export {
   Gallery,
-  PhotoPost,
-  AddPost,
-  EditPost,
+  Photo,
+  Add,
+  Edit,
   Spinner
 };

@@ -166,7 +166,9 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _resources = require('./resources');
 
-var _views = require('./views');
+var _views = require('./views/');
+
+var _views2 = require('./views');
 
 exports['default'] = _backbone2['default'].Router.extend({
 
@@ -201,7 +203,7 @@ exports['default'] = _backbone2['default'].Router.extend({
   },
 
   spinner: function spinner() {
-    this.render(_react2['default'].createElement(_views.Spinner, null));
+    this.render(_react2['default'].createElement(_views2.Spinner, null));
   },
 
   showGallery: function showGallery() {
@@ -234,7 +236,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     var photo = this.collection.get(id);
 
     if (photo) {
-      this.render(_react2['default'].createElement(_views.Photo, {
+      this.render(_react2['default'].createElement(_views2.Photo, {
         images: photo.toJSON(),
         onHomeClick: function () {
           return _this2.goto('');
@@ -249,7 +251,7 @@ exports['default'] = _backbone2['default'].Router.extend({
       console.log('adding dis here');
       photo = this.collection.add(id);
       photo.fetch().then(function () {
-        _this2.render(_react2['default'].createElement(_views.Photo, {
+        _this2.render(_react2['default'].createElement(_views2.Photo, {
           images: photo.toJSON(),
           onHomeClick: function () {
             return _this2.goto('');
@@ -268,7 +270,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     var _this3 = this;
 
     this.spinner();
-    this.render(_react2['default'].createElement(_views.Add, {
+    this.render(_react2['default'].createElement(_views2.Add, {
       images: this.collection.toJSON(),
       onHomeClick: function () {
         return _this3.goto('');
@@ -300,7 +302,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     this.spinner();
     var getId = this.collection.get(id);
     console.log(getId);
-    this.render(_react2['default'].createElement(_views.Edit, {
+    this.render(_react2['default'].createElement(_views2.Edit, {
       images: this.collection.toJSON(),
       stored: getId.toJSON(),
       onBackClick: function () {
@@ -333,7 +335,7 @@ exports['default'] = _backbone2['default'].Router.extend({
 });
 module.exports = exports['default'];
 
-},{"./resources":5,"./views":11,"backbone":14,"jquery":16,"react":174,"react-dom":18}],8:[function(require,module,exports){
+},{"./resources":5,"./views":11,"./views/":11,"backbone":14,"jquery":16,"react":174,"react-dom":18}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -667,26 +669,26 @@ var _spinner = require('./spinner');
 var _spinner2 = _interopRequireDefault(_spinner);
 
 exports.Gallery = _gallery2['default'];
-exports.PhotoPost = _picture2['default'];
-exports.AddPost = _add2['default'];
-exports.EditPost = _edit2['default'];
+exports.Photo = _picture2['default'];
+exports.Add = _add2['default'];
+exports.Edit = _edit2['default'];
 exports.Spinner = _spinner2['default'];
 
 },{"./add":8,"./edit":9,"./gallery":10,"./picture":12,"./spinner":13}],12:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-exports['default'] = _react2['default'].createClass({
-  displayName: 'picture',
+exports["default"] = _react2["default"].createClass({
+  displayName: "picture",
 
   goHomeView: function goHomeView() {
     this.props.onHomeClick();
@@ -703,57 +705,57 @@ exports['default'] = _react2['default'].createClass({
   render: function render() {
     var _this = this;
 
-    return _react2['default'].createElement(
-      'div',
+    return _react2["default"].createElement(
+      "div",
       null,
-      _react2['default'].createElement(
-        'div',
-        { className: 'header' },
-        _react2['default'].createElement('img', { src: 'https://scontent.cdninstagram.com/hphotos-xfa1/t51.2885-15/s150x150/e35/11337222_942920095776342_853123879_n.jpg' }),
-        _react2['default'].createElement(
-          'button',
+      _react2["default"].createElement(
+        "div",
+        { className: "header" },
+        _react2["default"].createElement("img", { src: "https://scontent.cdninstagram.com/hphotos-xfa1/t51.2885-15/s150x150/e35/11337222_942920095776342_853123879_n.jpg" }),
+        _react2["default"].createElement(
+          "button",
           { onClick: function () {
               return _this.goHomeView();
             } },
-          _react2['default'].createElement('i', { className: 'fa fa-home' }),
-          'Home'
+          _react2["default"].createElement("i", { className: "fa fa-home" }),
+          "Home"
         ),
-        _react2['default'].createElement(
-          'button',
-          { onClick: this.addFormView() },
-          _react2['default'].createElement('i', { className: 'fa fa-plus' }),
-          'Add'
+        _react2["default"].createElement(
+          "button",
+          { onClick: this.addFormView },
+          _react2["default"].createElement("i", { className: "fa fa-plus" }),
+          "Add"
         ),
-        _react2['default'].createElement(
-          'button',
+        _react2["default"].createElement(
+          "button",
           { onClick: function () {
               return _this.editFormView();
             } },
-          _react2['default'].createElement('i', { className: 'fa fa-pencil' }),
-          'Edit'
+          _react2["default"].createElement("i", { className: "fa fa-pencil" }),
+          "Edit"
         ),
-        _react2['default'].createElement('hr', null)
+        _react2["default"].createElement("hr", null)
       ),
-      _react2['default'].createElement(
-        'div',
-        { className: 'image-view', id: this.props.image.id },
-        _react2['default'].createElement('img', { src: this.props.images.photo }),
-        _react2['default'].createElement(
-          'p',
+      _react2["default"].createElement(
+        "div",
+        { className: "image-view", id: this.props.images.id },
+        _react2["default"].createElement("img", { src: this.props.images.photo }),
+        _react2["default"].createElement(
+          "p",
           null,
-          _react2['default'].createElement(
-            'span',
-            { className: 'username' },
-            this.props.image.user
+          _react2["default"].createElement(
+            "span",
+            { className: "username" },
+            this.props.images.user
           ),
-          ' ',
+          " ",
           this.props.images.caption
         )
       )
     );
   }
 });
-module.exports = exports['default'];
+module.exports = exports["default"];
 
 },{"react":174}],13:[function(require,module,exports){
 "use strict";
