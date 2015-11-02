@@ -2032,8 +2032,8 @@ html {
     display: block;
     margin: 0 auto;
     border-radius: 50%;
-    height: 75px;
-    width: 75px; }
+    height: 200px;
+    width: 200px; }
   .app .header button {
     padding: 15px;
     background: none;
