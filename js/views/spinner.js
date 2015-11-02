@@ -6,6 +6,7 @@ export default React.createClass({
     return (
       <div>
         <i className="fa fa-spinner fa-spin"/>
+      </div>
     );
   }
 });

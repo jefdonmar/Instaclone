@@ -1,16 +1,14 @@
 import Backbone from 'backbone';
 import Photo from './picture';
-import APP_URL from './parse_info';
 
 export default Backbone.Collection.extend({
 
-  url: 'APP_URL',
+  url: 'https://api.parse.com/1/classes/instaClone',
 
   model: Photo,
 
-  parse(data) {
-    return.data.results;
+  parse: function(data) {
+    return data.results;
   }
-
 
 });

@@ -1,9 +1,8 @@
 import Backbone from 'backbone';
-import APP_URL from './parse_info';
 
 export default Backbone.Model.extend({
 
-  urlRoot: 'APP_URL',
+  urlRoot: 'https://api.parse.com/1/classes/instaClone',
 
   idAttribute: 'objectId'
 

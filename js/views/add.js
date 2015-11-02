@@ -16,7 +16,7 @@ export default React.createClass({
     return (
       <div>
         <div className="header">
-          <img src=''/>
+          <img src='https://scontent.cdninstagram.com/hphotos-xfa1/t51.2885-15/s150x150/e35/11337222_942920095776342_853123879_n.jpg'/>
           <button onClick={() => this.goHomeView()}><i className="fa fa-home"></i> Back to Home</button>
           <hr/>
         </div> 
@@ -31,6 +31,6 @@ export default React.createClass({
         </div>
       </div>
     );
-
-
   }
+
+});
