@@ -1,7 +1,10 @@
-## Welcome to My Project
+## Welcome to My Instaclone
 
-> I am your Readme.md file, you should probably update me.
+In this repository, I build an Instagram clone using BackboneJS and Backbone Router. In this project, I use a PARSE data base and also have the features to add and edit a photo on this page.
 
+Here is a link to my deployment: old-force.surge.sh
+
+I hope you enjoy!
 
 ## Usage
 
