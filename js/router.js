@@ -37,11 +37,14 @@ export default Backbone.Router.extend({
   },
 
   goto(route) {
-    this.navigate(route, {trigger: true});
+    this.navigate(route, 
+      {trigger: true});
   },
 
   redirectToGallery() {
-    this.navigate('gallery', {replace: true, trigger: true});
+    this.navigate('gallery', {
+      replace: true, 
+      trigger: true});
   },
 
   spinner() {
@@ -49,9 +52,9 @@ export default Backbone.Router.extend({
   },
 
   showGallery() {
-    this.spinner();
     this.collection.fetch().then( () => {
-      this.render(<GalleryView 
+      this.render(
+        <GalleryView 
         id={this.collection.objectId}
         onHomeClick={() => this.goto('')} 
         onAddClick={() => this.goto('add')} 
@@ -62,11 +65,11 @@ export default Backbone.Router.extend({
   },
 
   showPost(id) {
-    this.spinner();
     let photo = this.collection.get(id);
 
     if (photo) {
-      this.render(<PhotoView 
+      this.render(
+        <PhotoView 
         images={photo.toJSON()}
         onHomeClick={() => this.goto('')}
         onAddClick={() => this.goto('add')}
@@ -75,7 +78,8 @@ export default Backbone.Router.extend({
       console.log('adding dis here');
       photo = this.collection.add(id);
       photo.fetch().then( () => {
-        this.render(<PhotoView 
+        this.render(
+          <PhotoView 
           images={photo.toJSON()}
           onHomeClick={() => this.goto('')}
           onAddClick={() => this.goto('add')}
@@ -85,8 +89,8 @@ export default Backbone.Router.extend({
   },
 
   addForm() {
-    this.spinner();
-    this.render(<Add 
+    this.render(
+      <Add 
       images={this.collection.toJSON()}
       onHomeClick={() => this.goto('')}
       onAddClick={() => this.goto('add')}
@@ -112,7 +116,8 @@ export default Backbone.Router.extend({
     this.spinner();
     let getId = this.collection.get(id);
     console.log(getId);
-    this.render(<Edit
+    this.render(
+      <Edit
       images={this.collection.toJSON()}
       stored= {getId.toJSON()}
       onBackClick={() => this.goto('photo/' + id)}

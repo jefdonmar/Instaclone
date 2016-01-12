@@ -196,7 +196,9 @@ exports['default'] = _backbone2['default'].Router.extend({
   },
 
   redirectToGallery: function redirectToGallery() {
-    this.navigate('gallery', { replace: true, trigger: true });
+    this.navigate('gallery', {
+      replace: true,
+      trigger: true });
   },
 
   spinner: function spinner() {
@@ -206,7 +208,6 @@ exports['default'] = _backbone2['default'].Router.extend({
   showGallery: function showGallery() {
     var _this = this;
 
-    this.spinner();
     this.collection.fetch().then(function () {
       _this.render(_react2['default'].createElement(_views.Gallery, {
         id: _this.collection.objectId,
@@ -229,7 +230,6 @@ exports['default'] = _backbone2['default'].Router.extend({
   showPost: function showPost(id) {
     var _this2 = this;
 
-    this.spinner();
     var photo = this.collection.get(id);
 
     if (photo) {
@@ -266,7 +266,6 @@ exports['default'] = _backbone2['default'].Router.extend({
   addForm: function addForm() {
     var _this3 = this;
 
-    this.spinner();
     this.render(_react2['default'].createElement(_views2.Add, {
       images: this.collection.toJSON(),
       onHomeClick: function () {
