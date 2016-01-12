@@ -87,9 +87,7 @@ var _picture2 = _interopRequireDefault(_picture);
 exports['default'] = _backbone2['default'].Collection.extend({
 
   url: 'https://api.parse.com/1/classes/instaClone',
-
   model: _picture2['default'],
-
   parse: function parse(data) {
     return data.results;
   }
@@ -133,7 +131,6 @@ var _backbone2 = _interopRequireDefault(_backbone);
 exports['default'] = _backbone2['default'].Model.extend({
 
   urlRoot: 'https://api.parse.com/1/classes/instaClone',
-
   idAttribute: 'objectId'
 
 });
